@@ -1,0 +1,77 @@
+<!--
+  Generated template for the AddEmployeePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add an Employee</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button icon-left (click)="importFromContacts()">
+    <ion-icon name="person-add"></ion-icon>
+    Import from Contacts
+  </button>
+  <form [formGroup]="addEmployeeForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <!-- FIRST NAME -->
+      <ion-item>
+        <ion-label stacked>First Name *</ion-label>
+        <ion-input type="text" formControlName="firstName">
+        </ion-input>
+      </ion-item>
+      <!-- ERROR MESSAGE-->
+      <ion-item *ngIf="!addEmployeeForm.controls.firstName.valid && addEmployeeForm.controls.firstName.touched">
+        <p>Your name has no letters?</p>
+      </ion-item>
+
+      <!-- LAST NAME -->
+      <ion-item>
+        <ion-label stacked>Last Name *</ion-label>
+        <ion-input type="text" formControlName="lastName">
+        </ion-input>
+      </ion-item>
+      <!-- ERROR MESSAGE-->
+      <ion-item *ngIf="!addEmployeeForm.controls.lastName.valid && addEmployeeForm.controls.lastName.touched">
+        <p>Your name has no letters?</p>
+      </ion-item>
+
+      <!-- EMAIL -->
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" formControlName="email"
+          [class.invalid]="!addEmployeeForm.controls.email.valid && addEmployeeForm.controls.email.dirty">
+        </ion-input>
+      </ion-item>
+      <!-- ERROR MESSAGE -->
+      <!-- <ion-item *ngIf="!addEmployeeForm.controls.email.valid && addEmployeeForm.controls.email.touched">
+        <p>Not a valid email.</p>
+      </ion-item> -->
+
+      <!-- Phone -->
+      <ion-item>
+        <ion-label stacked>Phone</ion-label>
+        <ion-input type="tel" formControlName="phone"
+          [class.invalid]="!addEmployeeForm.controls.phone.valid && addEmployeeForm.controls.phone.dirty">
+        </ion-input>
+      </ion-item>
+      <!-- ERROR MESSAGE -->
+      <ion-item *ngIf="!addEmployeeForm.controls.phone.valid">
+        <p>I think phone numbers have more numbers.</p>
+      </ion-item>
+
+
+    </ion-list>
+    <button ion-button block type="submit">
+      Register
+    </button>
+  </form>
+
+
+</ion-content>

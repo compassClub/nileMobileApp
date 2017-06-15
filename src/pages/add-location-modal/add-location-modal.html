@@ -1,0 +1,60 @@
+<!--
+  Generated template for the AddLocationModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Verify Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <!-- LOCATION NAME -->
+      <ion-item>
+        <ion-label stacked>Location Name *</ion-label>
+        <ion-input type="text" formControlName="name" [(ngModel)]="name">
+        </ion-input>
+      </ion-item>
+      <!-- ERROR MESSAGE-->
+      <ion-item *ngIf="!locationForm.controls.name.valid && locationForm.controls.name.touched">
+        <p>You must provide a name for the location.</p>
+      </ion-item>
+
+      <!-- LOCATION ADDRESS -->
+      <ion-item>
+        <ion-label stacked>Location Address *</ion-label>
+        <ion-input type="text" formControlName="address" [(ngModel)]="address" disabled="true">
+        </ion-input>
+      </ion-item>
+      <!-- ERROR MESSAGE-->
+      <ion-item *ngIf="!locationForm.controls.address.valid && locationForm.controls.address.touched">
+        <p>Your location needs an address.</p>
+      </ion-item>
+
+      <!-- LOCATION ACCESS CODE -->
+      <ion-item>
+        <ion-label stacked>Access Code</ion-label>
+        <ion-input type="text" formControlName="accessCode" placeholder="ex: gate access code">
+        </ion-input>
+      </ion-item>
+
+      <!-- LOCATION note -->
+      <ion-item>
+        <ion-label stacked>Location Notes</ion-label>
+        <ion-input type="text" formControlName="note" placeholder="ex: Beware of dog!">
+        </ion-input>
+      </ion-item>
+
+    </ion-list>
+    <button ion-button block type="submit">
+      Register
+    </button>
+  </form>
+</ion-content>

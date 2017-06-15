@@ -1,0 +1,33 @@
+<!--
+  Generated template for the AddEmployeePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add a Location</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar (ionInput)="searchForLocation($event)"
+    [showCancelButton]="true"
+    (ionClear)="onClear()"
+    placeholder="ex: Address or Place"
+    debounce="400"
+    #input></ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let place of autocompletePlaces" tappable (click)="chooseItem(place)">
+      {{ place.description }}
+    </ion-item>
+  </ion-list>
+
+
+
+
+</ion-content>
